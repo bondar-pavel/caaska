@@ -21,6 +21,7 @@
     <td><%= unit.password %></td>
     <td><%= link_to 'Show', unit %></td>
     <td><%= link_to 'Edit', edit_unit_path(unit) %></td>
+    <td><%= link_to 'Check', :action => :check, :id => unit %></td> 
     <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>

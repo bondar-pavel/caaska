@@ -80,4 +80,15 @@ class UnitsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def check
+    @unit = Unit.find(params[:id])
+    result = Checker.check_credential(@unit)
+
+    respond_to do |format|
+#       format.html{redirect_to @unit, notice: result }
+	format.html{render html: result }
+    end
+  end
+
 end
