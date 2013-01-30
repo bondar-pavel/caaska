@@ -37,5 +37,6 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 
-gem 'net-ssh'
+# For test purpose explict version is set
+gem 'net-ssh', '2.6.3'
 
