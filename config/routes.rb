@@ -3,11 +3,11 @@ Caaska::Application.routes.draw do
 
   resources :credentials
 
-
   resources :units do
-     # Route GET /users/check
+     # Route GET /units/check
      get 'check', :on => :collection
   end
+
 ## looks like crap
   #get "unit/new"
 
