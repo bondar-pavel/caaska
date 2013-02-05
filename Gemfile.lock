@@ -107,7 +107,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
-  net-ssh (= 2.6.3)
+  net-ssh
   rails (= 3.2.9)
   sass-rails (~> 3.2.3)
   sqlite3
