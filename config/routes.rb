@@ -1,4 +1,7 @@
 Caaska::Application.routes.draw do
+  resources :tools
+
+
   get "home/index"
 
   resources :credentials

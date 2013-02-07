@@ -84,7 +84,8 @@ class UnitsController < ApplicationController
   def check
     @unit = Unit.find(params[:id])
 #    result = Checker.check_credential(@unit)
-    result = @unit.update_description
+#    result = @unit.update_description
+    result = @unit.check_tools
     
 
     respond_to do |format|

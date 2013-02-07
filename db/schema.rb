@@ -11,12 +11,29 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130205083325) do
+ActiveRecord::Schema.define(:version => 20130206102607) do
 
   create_table "credentials", :force => true do |t|
     t.string   "username"
     t.string   "password"
     t.integer  "count"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "tools", :force => true do |t|
+    t.string   "name"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "tools", ["name"], :name => "index_tools_on_name", :unique => true
+
+  create_table "unit_tools", :force => true do |t|
+    t.integer  "unit_id"
+    t.integer  "tool_id"
+    t.string   "path"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
