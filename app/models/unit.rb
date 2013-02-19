@@ -11,16 +11,12 @@ class Unit < ActiveRecord::Base
          Net::SSH.start( self.ip, self.username, :password => self.password) do|ssh|
            result = ssh.exec!("which #{tool.name}")
          end
-#         t = self.unit_tools.find(tool)
-#         if (t.blank?)
-#            t = self.unit_tools.build(:tool =>tool)
-#         end
          t = UnitTool.new
          t.unit = self
          t.tool = tool
          t.path = result
          t.save!
-         'Fine!'
+         result +' Fine!'
       rescue Exception => e 
 	 e.message
       end
@@ -56,8 +52,8 @@ class Unit < ActiveRecord::Base
    end
   end
 
-  def update_description
-     self.description = self.check_credential
+  def update_description(desc)
+     self.description = desc
      self.save!
   end
 

@@ -81,16 +81,22 @@ class UnitsController < ApplicationController
     end
   end
 
-  def check
+  def check_unit_tools
     @unit = Unit.find(params[:id])
-#    result = Checker.check_credential(@unit)
-#    result = @unit.update_description
     result = @unit.check_tools
-    
 
     respond_to do |format|
        format.html{redirect_to @unit, notice: result }
-#	format.html{render html: @unit.ip }
+    end
+  end
+
+  def check
+    @unit = Unit.find(params[:id])
+    result = @unit.check_credential
+    @unit.update_description(result)
+
+    respond_to do |format|
+       format.html{redirect_to @unit, notice: result }
     end
   end
 
