@@ -57,4 +57,22 @@ class Unit < ActiveRecord::Base
      self.save!
   end
 
+  def ping
+    if (!self.ip.blank?)
+      begin
+        require 'timeout'
+        require 'socket'
+        Timeout.timeout(5) do 
+          s = TCPSocket.new(self.ip, 'echo')
+          s.close
+          return true
+        end
+      rescue Errno::ECONNREFUSED
+        return true
+      rescue Timeout::Error
+        return false
+      end
+    end
+  end
+
 end

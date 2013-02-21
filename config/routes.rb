@@ -10,6 +10,7 @@ Caaska::Application.routes.draw do
      # Route GET /units/check
      get 'check', :on => :collection
      get 'check_unit_tools', :on => :collection
+     get 'ping', :on => :collection
   end
 
 ## looks like crap

@@ -100,4 +100,13 @@ class UnitsController < ApplicationController
     end
   end
 
+  def ping 
+    @unit = Unit.find(params[:id])
+    result = @unit.ping
+    @unit.update_description("Ping result #{result}")
+
+    respond_to do |format|
+       format.html{redirect_to @unit, notice: result }
+    end
+  end
 end
