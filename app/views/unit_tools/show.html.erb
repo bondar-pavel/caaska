@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Tool:</b>
+  <%= @unit_tool.tool_id %>
+</p>
+
+<p>
+  <b>Unit:</b>
+  <%= @unit_tool.unit_id %>
+</p>
+
+<p>
+  <b>Path:</b>
+  <%= @unit_tool.path %>
+</p>
+
+
+<%= link_to 'Edit', edit_unit_tool_path(@unit_tool) %> |
+<%= link_to 'Back', unit_tools_path %>
