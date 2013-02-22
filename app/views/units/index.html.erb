@@ -24,7 +24,7 @@
     <td><%= link_to 'Ping', :action => :ping, :id => unit %></td>
     <td><%= link_to 'Check', :action => :check, :id => unit %></td> 
     <td><%= link_to 'Check Unit Tools', :action => :check_unit_tools, :id => unit %></td>
-    <td><%= link_to 'Show Unit Tools', :action => :unit, :id => unit %></td>
+    <td><%= link_to 'Show Unit Tools', :controller => :unit_tools, :action => :unit, :id => unit %></td>
     <td><%= link_to 'Destroy', unit, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
