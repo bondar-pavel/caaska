@@ -99,4 +99,19 @@ class UnitToolsController < ApplicationController
       format.json { render json: @unit_tools }
     end
   end
+
+  def find
+    t = params[:tool]
+    u = params[:unit]
+    if !u.blank?
+      @unit_tools = UnitTool.find_all_by_unit_id(u)
+    else
+      @unit_tools = UnitTool.find_all_by_tool_id(t)
+    end
+
+    respond_to do |format|
+      format.html { render action: "index" }
+      format.json { render json: @unit_tools}
+    end
+  end
 end

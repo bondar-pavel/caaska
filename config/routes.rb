@@ -5,6 +5,7 @@ Caaska::Application.routes.draw do
   resources :unit_tools do
      get 'unit', :on => :collection
      get 'tool', :on => :collection
+     get 'find', :on => :collection
   end
 
   resources :tools
