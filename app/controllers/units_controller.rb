@@ -82,7 +82,7 @@ class UnitsController < ApplicationController
   end
 
   def check_unit_tools
-    @unit = Unit.find(params[:id])
+    @unit = Unit.find(params[:unit])
     result = @unit.check_tools
 
     respond_to do |format|
@@ -91,7 +91,7 @@ class UnitsController < ApplicationController
   end
 
   def check
-    @unit = Unit.find(params[:id])
+    @unit = Unit.find(params[:unit])
     result = @unit.check_credential
     @unit.update_description(result)
 
@@ -101,7 +101,7 @@ class UnitsController < ApplicationController
   end
 
   def ping 
-    @unit = Unit.find(params[:id])
+    @unit = Unit.find(params[:unit])
     result = @unit.ping
     @unit.update_description("Ping result #{result}")
 

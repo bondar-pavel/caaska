@@ -82,13 +82,21 @@ class UnitToolsController < ApplicationController
   end
 
   def unit
-    @unit_tools = UnitTool.find_by_unit_id(params[:id])
-    @unit_tools = UnitTool.all
+    @unit_tools = UnitTool.find_all_by_unit_id(params[:unit])
 
     respond_to do |format|
       format.html { render action: "index"}# index.html.erb
       format.json { render json: @unit_tools }
     end
 
+  end
+
+  def tool
+    @unit_tools = UnitTool.find_all_by_tool_id(params[:tool])
+
+    respond_to do |format|
+      format.html { render action: "index"}
+      format.json { render json: @unit_tools }
+    end
   end
 end

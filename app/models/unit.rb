@@ -71,6 +71,8 @@ class Unit < ActiveRecord::Base
         return true
       rescue Timeout::Error
         return false
+      rescue Exception => e
+        e.message
       end
     end
   end
