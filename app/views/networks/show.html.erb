@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Start ip:</b>
+  <%= @network.start_ip %>
+</p>
+
+<p>
+  <b>End ip:</b>
+  <%= @network.end_ip %>
+</p>
+
+
+<%= link_to 'Edit', edit_network_path(@network) %> |
+<%= link_to 'Back', networks_path %>
