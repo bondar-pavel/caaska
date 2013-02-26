@@ -2,8 +2,8 @@
 
 <table>
   <tr>
-    <th>Tool</th>
-    <th>Unit</th>
+    <th>Unit IP</th>
+    <th>Tool Name</th>
     <th>Path</th>
     <th></th>
     <th></th>
@@ -12,8 +12,8 @@
 
 <% @unit_tools.each do |unit_tool| %>
   <tr>
-    <td><%= unit_tool.tool_id %></td>
-    <td><%= unit_tool.unit_id %></td>
+    <td><%= link_to unit_tool.unit.ip, :controller =>:units, :action => :show, :id => unit_tool.unit_id %></td>
+    <td><%= link_to unit_tool.tool.name, :controller =>:tools, :action => :show, :id => unit_tool.tool_id %></td>
     <td><%= unit_tool.path %></td>
     <td><%= link_to 'Show', unit_tool %></td>
     <td><%= link_to 'Edit', edit_unit_tool_path(unit_tool) %></td>
