@@ -1,5 +1,5 @@
 class Unit < ActiveRecord::Base
-  attr_accessible :description, :ip, :password, :unit_id, :username
+  attr_accessible :description, :ip, :password, :username
   has_many :unit_tools, :dependent => :destroy
   validates :ip, :presence => true, :uniqueness =>true
 

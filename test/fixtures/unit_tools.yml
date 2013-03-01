@@ -3,9 +3,9 @@
 one:
   tool_id: 1
   unit_id: 1
-  path: MyString
+  path: /bin/grep
 
 two:
-  tool_id: 1
+  tool_id: 2
   unit_id: 1
-  path: MyString
+  path: /bin/cat

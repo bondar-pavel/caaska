@@ -1,9 +1,9 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
 
 one:
-  name: MyString
-  description: MyString
+  name: cat
+  description: shows content of file
 
 two:
-  name: MyString
-  description: MyString
+  name: grep
+  description: print string that matches pattern
