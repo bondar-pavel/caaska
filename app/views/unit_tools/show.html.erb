@@ -1,13 +1,13 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Tool:</b>
-  <%= @unit_tool.tool_id %>
+  <b>Tool name:</b>
+  <%= link_to @unit_tool.tool.name, :controller =>:tools, :action => :show, :id => @unit_tool.tool.id %>
 </p>
 
 <p>
-  <b>Unit:</b>
-  <%= @unit_tool.unit_id %>
+  <b>Unit ip:</b>
+  <%= link_to @unit_tool.unit.ip, :controller =>:units, :action => :show, :id => @unit_tool.unit.id %>
 </p>
 
 <p>
