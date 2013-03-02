@@ -45,4 +45,14 @@ class NetworkTest < ActiveSupport::TestCase
       n.end_ip = '192.168.1.56'
       assert n.save
   end
+
+  test "list ips belongs to network" do
+      n = Network.new
+      n.start_ip = '192.168.0.1'
+      n.end_ip = '192.168.0.5'
+      assert n.ips.size == 5, "Array size should be executed 5 times instead of #{n.ips.size}"
+      for i in 0..4 do
+         assert n.ips[i] == "192.168.0.#{i+1}", "Should be returned 192.168.0.#{i+1} instead of #{n.ips[i]}"
+      end
+  end
 end

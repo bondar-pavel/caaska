@@ -28,4 +28,15 @@ class Network < ActiveRecord::Base
       d = num % 2**8
       "#{a}.#{b}.#{c}.#{d}"
   end
+
+  def ips
+     s = Network.ip2num(self.start_ip)
+     e = Network.ip2num(self.end_ip)
+
+     ips = Array.new
+     for ip in s..e 
+        ips.push(Network.num2ip(ip))
+     end
+     ips
+  end
 end
