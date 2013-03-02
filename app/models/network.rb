@@ -20,6 +20,12 @@ class Network < ActiveRecord::Base
   end
 
   def self.num2ip(num)
-      num 
+      a = num / 2**24 
+      num = num % 2**24
+      b = num / 2**16
+      num = num % 2**16
+      c = num / 2**8
+      d = num % 2**8
+      "#{a}.#{b}.#{c}.#{d}"
   end
 end

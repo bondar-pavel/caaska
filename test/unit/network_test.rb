@@ -33,6 +33,12 @@ class NetworkTest < ActiveSupport::TestCase
       assert numeric == '172.23.10.15', "Returned ip #{numeric} should be 172.23.10.15"
   end
 
+  test "number to ip conversation with zero" do
+      num = 192*2**24 + 168*2**16 +1
+      numeric = Network.num2ip(num)
+      assert numeric == '192.168.0.1', "Returned ip #{numeric} should be 192.168.0.1"
+  end 
+
   test "saving with correct ip" do
       n = Network.new
       n.start_ip = '192.168.1.2'
