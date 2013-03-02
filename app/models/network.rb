@@ -1,5 +1,11 @@
+require 'resolv'
+
 class Network < ActiveRecord::Base
-  attr_accessible :end_ip, :start_ip
+  attr_accessible :end_ip, :start_ip  
+  validates :end_ip, :presence => true,
+            :uniqueness => true, :format => { :with => Resolv::IPv4::Regex } 
+  validates :start_ip, :presence => true, 
+            :uniqueness => true, :format => { :with => Resolv::IPv4::Regex }
 
   def self.validate_ip(ip)
       if(ip =~ /(\d+)\.(\d+)\.(\d+)\.(\d+)/)
