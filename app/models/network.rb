@@ -8,22 +8,14 @@ class Network < ActiveRecord::Base
             :uniqueness => true, :format => { :with => Resolv::IPv4::Regex }
 
   def self.validate_ip(ip)
-      if(ip =~ /(\d+)\.(\d+)\.(\d+)\.(\d+)/)
-          if($1.to_i<256 && $2.to_i<256 && $3.to_i<256)
-              [$1.to_i, $2.to_i, $3.to_i, $4.to_i]
-          else
-              false
-          end
-      else
-          false
+      if(Resolv::IPv4::Regex.match(ip))
+          [$1.to_i, $2.to_i, $3.to_i, $4.to_i]
       end
   end
 
   def self.ip2num(ip)
-      if(arr = self.validate_ip(ip))
-         arr[0]*2**24 + arr[1]*2**16 + arr[2]*2**8 +arr[3]
-      else
-         nil
+      if(i = self.validate_ip(ip))
+          i[0]*2**24 + i[1]*2**16 +i[2]*2**8 + i[3]
       end
   end
 
