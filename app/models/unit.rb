@@ -1,7 +1,10 @@
+require 'resolv'
+
 class Unit < ActiveRecord::Base
   attr_accessible :description, :ip, :password, :username
   has_many :unit_tools, :dependent => :destroy
-  validates :ip, :presence => true, :uniqueness =>true
+  validates :ip, :presence => true,
+            :uniqueness => true, :format => { :with => Resolv::IPv4::Regex }
 
   def check_tool(tool)
     if(!tool.nil? and !tool.name.blank?)
