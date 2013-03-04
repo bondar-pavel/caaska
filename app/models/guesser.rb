@@ -1,6 +1,9 @@
-class Checker
-#   require 'net/ssh'
+require 'net/ssh'
 
+class Guesser 
+# 
+#   For now just placeholder, should be completely reworked.
+#
    def check_credential(unit, creds)
        if (creds.nil?)
             if Device.restond_to?(password) and Device.repond_to?(usename)
