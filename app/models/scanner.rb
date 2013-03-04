@@ -4,10 +4,10 @@ require 'timeout'
 
 class Scanner
 
-  def ping_ip(ip)
+  def self.ping(ip)
     begin
       Timeout.timeout(5) do
-        s = TCPSocket.new(self.ip, 'echo')
+        s = TCPSocket.new(ip, 'echo')
         s.close
         return true
       end

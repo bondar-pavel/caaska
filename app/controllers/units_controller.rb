@@ -102,7 +102,8 @@ class UnitsController < ApplicationController
 
   def ping 
     @unit = Unit.find(params[:unit])
-    result = @unit.ping
+    #result = @unit.ping
+    result = Scanner.ping(@unit.ip)
     @unit.update_description("Ping result #{result}")
 
     respond_to do |format|
