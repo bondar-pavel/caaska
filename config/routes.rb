@@ -1,6 +1,7 @@
 Caaska::Application.routes.draw do
-  resources :networks
-
+  resources :networks do
+     get 'ping', :on => :collection
+  end
 
   resources :unit_tools do
      get 'unit', :on => :collection

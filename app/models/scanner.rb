@@ -6,7 +6,7 @@ class Scanner
 
   def self.ping(ip)
     begin
-      Timeout.timeout(5) do
+      Timeout.timeout(2) do
         s = TCPSocket.new(ip, 'echo')
         s.close
         return true
@@ -20,4 +20,11 @@ class Scanner
     end
   end
 
+  def self.ping_each(ips) 
+    devices = Array.new
+    ips.each do |ip|
+       devices << ip if self.ping(ip)
+    end
+    devices
+  end
 end

@@ -80,4 +80,14 @@ class NetworksController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def ping 
+    @network = Network.find(params[:id])
+    devices  = Scanner.ping_each(@network.ips)
+    list = devices.join(',')
+    
+    respond_to do |format|
+       format.html { redirect_to @network, notice: "Found #{list}." }
+    end
+  end
 end
