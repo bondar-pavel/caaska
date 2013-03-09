@@ -1,4 +1,7 @@
 Caaska::Application.routes.draw do
+  resources :devices
+
+
   resources :networks do
      get 'ping', :on => :collection
   end

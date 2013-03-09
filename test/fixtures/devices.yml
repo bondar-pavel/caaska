@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  ip: MyString
+  ping: false
+  ssh: false
+  network_id: 1
+
+two:
+  ip: MyString
+  ping: false
+  ssh: false
+  network_id: 1

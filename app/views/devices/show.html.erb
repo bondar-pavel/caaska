@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Ip:</b>
+  <%= @device.ip %>
+</p>
+
+<p>
+  <b>Ping:</b>
+  <%= @device.ping %>
+</p>
+
+<p>
+  <b>Ssh:</b>
+  <%= @device.ssh %>
+</p>
+
+<p>
+  <b>Network:</b>
+  <%= @device.network_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_device_path(@device) %> |
+<%= link_to 'Back', devices_path %>

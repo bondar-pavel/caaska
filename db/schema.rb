@@ -11,12 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130223063857) do
+ActiveRecord::Schema.define(:version => 20130309125314) do
 
   create_table "credentials", :force => true do |t|
     t.string   "username"
     t.string   "password"
     t.integer  "count"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "devices", :force => true do |t|
+    t.string   "ip"
+    t.boolean  "ping"
+    t.boolean  "ssh"
+    t.integer  "network_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
