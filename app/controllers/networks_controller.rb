@@ -84,6 +84,13 @@ class NetworksController < ApplicationController
   def ping 
     @network = Network.find(params[:id])
     devices  = Scanner.ping_each(@network.ips)
+    devices.each do |device|
+       d = Device.find_by_ip(device) or Device.new
+       d.ip = device
+       d.network = @network
+       d.ping = true
+       d.save!
+    end
     list = devices.join(',')
     
     respond_to do |format|
