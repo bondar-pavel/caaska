@@ -15,8 +15,8 @@ class Scanner
       return true
     rescue Timeout::Error
       return false
-    rescue Exception => e
-      e.message
+    rescue
+      return false
     end
   end
 
