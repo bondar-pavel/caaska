@@ -85,7 +85,8 @@ class NetworksController < ApplicationController
     @network = Network.find(params[:id])
     devices  = Scanner.ping_each(@network.ips)
     devices.each do |device|
-       d = Device.find_by_ip(device) or Device.new
+       d = Device.find_by_ip(device)
+       d = Device.new if d.nil?
        d.ip = device
        d.network = @network
        d.ping = true
