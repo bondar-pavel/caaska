@@ -13,8 +13,8 @@ class Scanner
       end
     rescue Errno::ECONNREFUSED
       return true
-    rescue Timeout::Error
-      return false
+    #rescue Timeout::Error
+    #  return false
     rescue
       return false
     end
