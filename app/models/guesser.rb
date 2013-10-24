@@ -5,14 +5,11 @@ class Guesser
 #   For now just placeholder, should be completely reworked.
 #
    def check_credential(unit, creds)
-       if (creds.nil?)
-            if Device.restond_to?(password) and Device.repond_to?(usename)
-               username = unit.username;
-               password = unit.password;
-            end
+       if creds.respond_to?(password) and creds.respond_to?(usename)
+            username = creds.usename
+            password = creds.password
        else
-            username = creds.usename;
-            password = creds.password;
+            return false
        end
 
        if (Device.respond_to?(ip) and not username.blank?)
@@ -27,6 +24,14 @@ class Guesser
                "Invalid Host: #{e}"
            end
        end
+   end
+
+   def check_unit(unit)
+      if unit.respond_to?(password) and unit.respond_to?(usename)
+         check_credential(unit, unit)
+      else 
+         false
+      end
    end
 
 end
