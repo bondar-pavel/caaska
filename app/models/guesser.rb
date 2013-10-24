@@ -5,8 +5,8 @@ class Guesser
 #   For now just placeholder, should be completely reworked.
 #
    def check_credential(unit, creds)
-       if creds.respond_to?(password) and creds.respond_to?(usename)
-            username = creds.usename
+       if creds.respond_to?(password) and creds.respond_to?(username)
+            username = creds.username
             password = creds.password
        else
             return false
@@ -27,7 +27,7 @@ class Guesser
    end
 
    def check_unit(unit)
-      if unit.respond_to?(password) and unit.respond_to?(usename)
+      if unit.respond_to?(password) and unit.respond_to?(username)
          check_credential(unit, unit)
       else 
          false
