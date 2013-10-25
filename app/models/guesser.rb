@@ -5,7 +5,7 @@ class Guesser
 #   For now just placeholder, should be completely reworked.
 #
    def check_credential(unit, creds)
-       if creds.respond_to?(password) and creds.respond_to?(username)
+       if creds.respond_to?(:password) and creds.respond_to?(:username)
             username = creds.username
             password = creds.password
        else
@@ -14,7 +14,7 @@ class Guesser
 
        if (Device.respond_to?(ip) and not username.blank?)
            begin
-               Net::SSH.start( unit.ip, username, :password => password) do|ssh|
+               Net::SSH.start( unit.ip, username, :password => password) do |ssh|
 	          # nothing to do for now
                end
                'Successfully authenticated'
@@ -27,7 +27,7 @@ class Guesser
    end
 
    def check_unit(unit)
-      if unit.respond_to?(password) and unit.respond_to?(username)
+      if unit.respond_to?(:password) and unit.respond_to?(:username)
          check_credential(unit, unit)
       else 
          false
