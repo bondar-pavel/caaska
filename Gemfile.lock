@@ -1,3 +1,9 @@
+GIT
+  remote: git://github.com/dotdoom/net-ssh-open3.git
+  revision: 0322e9a9968690e49e49be8d9c917faa6e051434
+  specs:
+    net-ssh-open3 (0.1.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -53,7 +59,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.3.7)
-    net-ssh (2.6.3)
+    net-ssh (2.9.0)
     polyglot (0.3.3)
     rack (1.4.1)
     rack-cache (1.2)
@@ -108,6 +114,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   jquery-rails
   net-ssh
+  net-ssh-open3!
   rails (= 3.2.9)
   sass-rails (~> 3.2.3)
   sqlite3

@@ -39,4 +39,5 @@ gem 'jquery-rails'
 
 # Net:SSH is core of planned functionality
 gem 'net-ssh'
+gem 'net-ssh-open3', :git => 'git://github.com/dotdoom/net-ssh-open3.git'
 
